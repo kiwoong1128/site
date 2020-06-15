@@ -22,12 +22,21 @@
       }
       /* tab style */
       .tab {
+        display: flex;
+        max-width: 600px;
         overflow: hidden;
+
+        align-items: center;
+        justify-content: space-between;
+        align-self: center;
         /*border: 1px solid #ccc;*/
 
       }
       /* style buttons insie the tab */
       .tab button {
+        display: inline-block;
+        margin-left: 50px;
+        margin-right: 50px;
         background-color: inherit;
         float: left;
         border: none;
@@ -35,12 +44,12 @@
         cursor: pointer;
         padding: 14px 16px;
         transition: 0.3s;
-
         font-size: 17px;
       }
       /* Change background color of buttons on hover */
       .tab button:hover {
-        transition: all 1.2s ease;
+        color: mintcream;
+        transition: all 0.3s ease;
       }
 
       /* Create an active/current tablink class */
@@ -50,31 +59,83 @@
       }
 
       /* Style the tab content */
+      .wrapper {
+
+         margin-top: 0px;
+         z-index: -3;
+         position: relative;
+         opacity: 1;
+         padding: 40px 60px;
+         overflow: hidden;
+         transition: all 1s ease;
+
+         border-radius: 25px;
+         top: 0;
+         height: 500px;
+      }
+
       .tabcontent {
         display: none;
         padding: 6px 12px;
         border-top: none;
+        transition: all 1s ease;
+
       }
 
+      .tabcontent.active {
+        transition: all 1s ease;
+        display: block;
+      }
+      /* Tab content line */
 
-      #row1 {
+      /* Text*/
+      .tabcontent  {
+         color: $text;
+         margin: 0;
+         padding: 0;
+         line-height: 28px;
+         font-weight: 100;
+         transition: all 1s ease;
+         animation: fadeEffect 0.6s ease;
+         width: 100%;
+         font-size: 16px;
+         font-family: "IBM Plex Sans", sans-serif;
+
+         @media screen and (max-width: 512px) {
+            font-size: 14px;
+            line-height: 26px;
+         }
+      }
+      @keyframes fadeEffect {
+         from {
+            opacity: 0;
+            margin-left: 30px;
+         }
+         to {
+            opacity: 1;
+            margin-left: 0;
+         }
+      }
+
+      /* HOME */
+      .home #row1 {
         display: flex;
         flex-direction: row;
         justify-content: center;
       }
 
-        #left1 img {
+        .home #left1 img {
           width: 200px;
           border-radius: 25px;
         }
 
-        #right1 {
+        .home #right1 {
           color: rgb(62, 62, 62);
           width: 200px;
           margin-left: 20px;
         }
 
-        #right1 h1 {
+        .home #right1 h1 {
           font-size: 18px;
         }
 
@@ -91,17 +152,29 @@
           width: 30px;
         }
 
+      /* Projects */
+      .projects {
+        background-color: pink;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+        #project-1 {
+          color:blue;
+        }
     </style>
   </head>
 
   <body>
     <!-- TABS -->
     <div class="tab">
-      <button class="tablinks" onclick="openTab(event, 'home')" id="defaultOpen">Home</button>
-      <button class="tablinks" onclick="openTab(event, 'projects')">Projects</button>
+      <button class="tablinks" onclick="openTab(event, 'home')">Home</button>
+      <button class="tablinks" onclick="openTab(event, 'projects')" id="defaultOpen">Projects</button>
     </div>
-
-    <div id="home" class="tabcontent">
+    <!-- TAB CONTENT -->
+    <div class="wrapper">
+    <!-- HOME -->
+    <div id="home" class="home tabcontent">
       <div id="row1">
         <div id="left1">
           <img src="images\portrait.JPG" alt="photo of me holding a camera at a beach">
@@ -117,12 +190,25 @@
         </div>
       </div>
     </div>
-
-    <div id="projects" class="tabcontent">
-      <h3>Projects</h3>
-      <p>Placeholder for projects</p>
+    <!-- PROJECTS -->
+    <div id="projects" class="tabcontent projects">
+      <div id="project-1">
+        <p>Placeholder for projects</p>
+      </div>
+      <div id="project-2">
+        <p>Placeholder for projects</p>
+      </div>
+      <div id="project-3">
+        <p>Placeholder for projects</p>
+      </div>
+      <div id="project-4">
+        <p>Placeholder for projects</p>
+      </div>
     </div>
 
+  </div> <!-- end of wrapper -->
+
+    <!-- SOCIALS -->
     <div id="row2">
       <a href="https://facebook.com/kiwoong1128"><img src="images\facebook.svg"></a>&emsp;
       <a href="https://github.com/kiwoong1128"><img src="images\github.svg"></a>&emsp;
