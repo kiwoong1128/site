@@ -7,7 +7,7 @@
     </title>
 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       body {
         background: #D3CCE3;
@@ -20,6 +20,42 @@
         justify-content: center;
         margin-top: 50px;
       }
+      /* tab style */
+      .tab {
+        overflow: hidden;
+        /*border: 1px solid #ccc;*/
+
+      }
+      /* style buttons insie the tab */
+      .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+
+        font-size: 17px;
+      }
+      /* Change background color of buttons on hover */
+      .tab button:hover {
+        transition: all 1.2s ease;
+      }
+
+      /* Create an active/current tablink class */
+      .tab button.active {
+        transition-duration: 0.5s;
+        color: mintcream;
+      }
+
+      /* Style the tab content */
+      .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border-top: none;
+      }
+
 
       #row1 {
         display: flex;
@@ -27,20 +63,20 @@
         justify-content: center;
       }
 
-      #left1 img {
-        width: 200px;
-        border-radius: 25px;
-      }
+        #left1 img {
+          width: 200px;
+          border-radius: 25px;
+        }
 
-      #right1 {
-        color: rgb(62, 62, 62);
-        width: 200px;
-        margin-left: 20px;
-      }
+        #right1 {
+          color: rgb(62, 62, 62);
+          width: 200px;
+          margin-left: 20px;
+        }
 
-      #right1 h1 {
-        font-size: 18px;
-      }
+        #right1 h1 {
+          font-size: 18px;
+        }
 
       #row2 {
         background-color: mintcream;
@@ -51,38 +87,64 @@
         margin-top: 20px;
       }
 
-      #row2 img {
-        width: 30px;
-      }
+        #row2 img {
+          width: 30px;
+        }
 
     </style>
   </head>
 
   <body>
+    <!-- TABS -->
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'home')" id="defaultOpen">Home</button>
+      <button class="tablinks" onclick="openTab(event, 'projects')">Projects</button>
+    </div>
 
-    <div id="row1">
-      <div id="left1">
-        <img src="images\portrait.JPG" alt="photo of me holding a camera at a beach">
+    <div id="home" class="tabcontent">
+      <div id="row1">
+        <div id="left1">
+          <img src="images\portrait.JPG" alt="photo of me holding a camera at a beach">
+        </div>
+        <div id="right1">
+          <span id="info1">
+            <h1>Ki Woong Kim</h1>
+            <p>I graduated from George Mason University in 2020 with a
+              bachelor's degree in computer science.
+              <br><br>
+              Currently learning full stack development through Hack Your Own.
+          </span>
+        </div>
       </div>
+    </div>
 
-      <div id="right1">
-        <span id="info1">
-          <h1>Ki Woong Kim</h1>
-          <p>I graduated from George Mason University in 2020 with a
-            bachelor's degree in computer science.
-            <br><br>
-            Currently learning full stack development through Hack Your Own.
-        </span>
-      </div>
+    <div id="projects" class="tabcontent">
+      <h3>Projects</h3>
+      <p>Placeholder for projects</p>
     </div>
 
     <div id="row2">
       <a href="https://facebook.com/kiwoong1128"><img src="images\facebook.svg"></a>&emsp;
       <a href="https://github.com/kiwoong1128"><img src="images\github.svg"></a>&emsp;
-      <a href="https://twitter.com/kiwoong1128""><img src="images\twitter.svg"></a>&emsp;
+      <a href="https://twitter.com/kiwoong1128"><img src="images\twitter.svg"></a>&emsp;
       <a href="https://www.instagram.com/kiwoong_k1m/?hl=en"><img src="images\instagram.svg"></a>
     </div>
 
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for(i=0; i<tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for(i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+      document.getElementById("defaultOpen").click();
+    </script>
   </body>
-
 </html>
