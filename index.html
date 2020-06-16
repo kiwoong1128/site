@@ -14,23 +14,14 @@
         background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);
         background: linear-gradient(to right, #E9E4F0, #D3CCE3);
         font-family: 'Source Sans Pro', sans-serif;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         margin-top: 50px;
       }
       /* tab style */
       .tab {
         display: flex;
-        max-width: 600px;
         overflow: hidden;
-
         align-items: center;
-        justify-content: space-between;
-        align-self: center;
-        /*border: 1px solid #ccc;*/
-
+        justify-content: center;
       }
       /* style buttons insie the tab */
       .tab button {
@@ -60,22 +51,16 @@
 
       /* Style the tab content */
       .wrapper {
-
          margin-top: 0px;
          z-index: -3;
          position: relative;
-         opacity: 1;
          padding: 40px 60px;
          overflow: hidden;
-         transition: all 1s ease;
-
-         border-radius: 25px;
-         top: 0;
-         height: 500px;
       }
 
       .tabcontent {
         display: none;
+        flex: 0;
         padding: 6px 12px;
         border-top: none;
         transition: all 1s ease;
@@ -84,7 +69,10 @@
 
       .tabcontent.active {
         transition: all 1s ease;
-        display: block;
+        display: flex;
+        transition: flex 0.3s ease-out;
+        height: auto;
+        flex:1;
       }
       /* Tab content line */
 
@@ -96,7 +84,7 @@
          line-height: 28px;
          font-weight: 100;
          transition: all 1s ease;
-         animation: fadeEffect 0.6s ease;
+         animation: fadeEffect 0.7s ease;
          width: 100%;
          font-size: 16px;
          font-family: "IBM Plex Sans", sans-serif;
@@ -109,7 +97,7 @@
       @keyframes fadeEffect {
          from {
             opacity: 0;
-            margin-left: 30px;
+            /*margin-left: 30px;*/
          }
          to {
             opacity: 1;
@@ -117,11 +105,13 @@
          }
       }
 
+
       /* HOME */
       .home #row1 {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin:auto;
       }
 
         .home #left1 img {
@@ -151,17 +141,34 @@
         #row2 img {
           width: 30px;
         }
+        #row2 img:hover {
+          transform: scale(1.1);
+          transition-duration: 0.2s;
+        }
 
       /* Projects */
       .projects {
-        background-color: pink;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
       }
-        #project-1 {
-          color:blue;
+        .projects img {
+          margin:50px;
         }
+        .projects #mint {
+          width: 450px;
+        }
+        .projects #calculator {
+          width: 300px;
+        }
+      /* Contact */
+      .contact {
+        align-items: center;
+        justify-content: center;
+        margin:auto;
+      }
     </style>
   </head>
 
@@ -170,6 +177,7 @@
     <div class="tab">
       <button class="tablinks" onclick="openTab(event, 'home')">Home</button>
       <button class="tablinks" onclick="openTab(event, 'projects')" id="defaultOpen">Projects</button>
+      <button class="tablinks" onclick="openTab(event, 'contact')">Contact</button>
     </div>
     <!-- TAB CONTENT -->
     <div class="wrapper">
@@ -192,20 +200,16 @@
     </div>
     <!-- PROJECTS -->
     <div id="projects" class="tabcontent projects">
-      <div id="project-1">
-        <p>Placeholder for projects</p>
-      </div>
-      <div id="project-2">
-        <p>Placeholder for projects</p>
-      </div>
-      <div id="project-3">
-        <p>Placeholder for projects</p>
-      </div>
-      <div id="project-4">
-        <p>Placeholder for projects</p>
-      </div>
-    </div>
 
+        <img id="mint" src="images\mint-project.png">
+
+        <img id="calculator" src="images\calculator-project.png">
+
+    </div>
+    <!-- CONTACT -->
+    <div id="contact" class="tabcontent contact">
+      <p>kiwoong1128@gmail.com
+    </div>
   </div> <!-- end of wrapper -->
 
     <!-- SOCIALS -->
@@ -227,7 +231,7 @@
         for(i = 0; i < tablinks.length; i++) {
           tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).style.display = "flex";
         evt.currentTarget.className += " active";
       }
       document.getElementById("defaultOpen").click();
