@@ -70,7 +70,6 @@
       .tabcontent.active {
         transition: all 1s ease;
         display: flex;
-        transition: flex 0.3s ease-out;
         height: auto;
         flex:1;
       }
@@ -90,6 +89,7 @@
          font-family: "IBM Plex Sans", sans-serif;
 
          @media screen and (max-width: 512px) {
+           background-color: pink;
             font-size: 14px;
             line-height: 26px;
          }
@@ -140,6 +140,8 @@
 
         #row2 img {
           width: 30px;
+          margin-left: 10px;
+          margin-right: 10px
         }
         #row2 img:hover {
           transform: scale(1.1);
@@ -154,14 +156,27 @@
         align-items: center;
         height: auto;
       }
+        .projects .project-row {
+          display:flex;
+          flex-direction: row;
+        }
+        .projects .proj-image {
+
+        }
+        .projects .proj-text {
+          display: block;
+          align-items: center;
+          margin: auto;
+
+        }
         .projects img {
           margin:50px;
         }
         .projects #mint {
-          width: 450px;
+          max-width: 450px;
         }
         .projects #calculator {
-          width: 300px;
+          max-width: 300px;
         }
       /* Contact */
       .contact {
@@ -169,6 +184,30 @@
         justify-content: center;
         margin:auto;
       }
+
+      /* MOBILE SETTINGS */
+      @media screen and (max-width: 450px) {
+        .tab button {
+          margin:auto;
+        }
+        .home #row1 {
+          display: flex;
+          flex-direction: column;
+        }
+        .home #right1 {
+          margin: auto;
+        }
+        .projects .project-row {
+          display:flex;
+          flex-wrap: wrap;
+        }
+        .projects .proj-text {
+          margin-top: -30px;
+        }
+
+      }
+      /* END OF MOBILE SETTINGS */
+
     </style>
   </head>
 
@@ -179,7 +218,7 @@
       <button class="tablinks" onclick="openTab(event, 'projects')" id="defaultOpen">Projects</button>
       <button class="tablinks" onclick="openTab(event, 'contact')">Contact</button>
     </div>
-    <!-- TAB CONTENT -->
+    <!-- TAB CONTENT WRAPPER -->
     <div class="wrapper">
     <!-- HOME -->
     <div id="home" class="home tabcontent">
@@ -198,19 +237,33 @@
         </div>
       </div>
     </div>
+
     <!-- PROJECTS -->
     <div id="projects" class="tabcontent projects">
-
-        <img id="mint" src="images\mint-project.png">
-
-        <img id="calculator" src="images\calculator-project.png">
-
+      <div class="project-row">
+          <img id="mint" class="proj-image" src="images\mint-project.png">
+          <p class="proj-text">
+            <span style="font-size: 20px">Mint-Login Page</span>
+            <br>
+            Bla Bla bla bla bla blalbalblala
+          </p>
+      </div>
+      <div class="project-row">
+        <img id="calculator" class="proj-image" src="images\calculator-project.png">
+        <p class="proj-text">
+          <span style="font-size: 20px">Four Function Calculator</span>
+          <br>
+          Bla Bla bla bla bla blalbalblala
+        </p>
+      </div>
     </div>
+
     <!-- CONTACT -->
     <div id="contact" class="tabcontent contact">
       <p>email placeholder
     </div>
-  </div> <!-- end of wrapper -->
+  </div>
+  <!-- end of wrapper -->
 
     <!-- SOCIALS -->
     <div id="row2">
