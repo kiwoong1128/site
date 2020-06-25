@@ -8,207 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      body {
-        background: #D3CCE3;
-        background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);
-        background: linear-gradient(to right, #E9E4F0, #D3CCE3);
-        font-family: 'Source Sans Pro', sans-serif;
-        margin-top: 50px;
-      }
-      /* tab style */
-      .tab {
-        display: flex;
-        overflow: hidden;
-        align-items: center;
-        justify-content: center;
-      }
-      /* style buttons insie the tab */
-      .tab button {
-        display: inline-block;
-        margin-left: 50px;
-        margin-right: 50px;
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        font-size: 17px;
-      }
-      /* Change background color of buttons on hover */
-      .tab button:hover {
-        color: mintcream;
-        transition: all 0.3s ease;
-      }
-
-      /* Create an active/current tablink class */
-      .tab button.active {
-        transition-duration: 0.5s;
-        color: mintcream;
-      }
-
-      /* Style the tab content */
-      .wrapper {
-         margin-top: 0px;
-         z-index: -3;
-         position: relative;
-         padding: 40px 60px;
-         overflow: hidden;
-      }
-
-      .tabcontent {
-        display: none;
-        flex: 0;
-        padding: 6px 12px;
-        border-top: none;
-        transition: all 1s ease;
-
-      }
-
-      .tabcontent.active {
-        transition: all 1s ease;
-        display: flex;
-        height: auto;
-        flex:1;
-      }
-      /* Tab content line */
-
-      /* Text*/
-      .tabcontent  {
-         color: $text;
-         margin: 0;
-         padding: 0;
-         line-height: 28px;
-         font-weight: 100;
-         transition: all 1s ease;
-         animation: fadeEffect 0.7s ease;
-         width: 100%;
-         font-size: 16px;
-         font-family: "IBM Plex Sans", sans-serif;
-
-         @media screen and (max-width: 512px) {
-           background-color: pink;
-            font-size: 14px;
-            line-height: 26px;
-         }
-      }
-      @keyframes fadeEffect {
-         from {
-            opacity: 0;
-            /*margin-left: 30px;*/
-         }
-         to {
-            opacity: 1;
-            margin-left: 0;
-         }
-      }
-
-
-      /* HOME */
-      .home #row1 {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin:auto;
-      }
-
-        .home #left1 img {
-          width: 200px;
-          border-radius: 25px;
-        }
-
-        .home #right1 {
-          color: rgb(62, 62, 62);
-          width: 200px;
-          margin-left: 20px;
-        }
-
-        .home #right1 h1 {
-          font-size: 18px;
-        }
-
-      #row2 {
-        background-color: mintcream;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        padding: 10px;
-        margin-top: 20px;
-      }
-
-        #row2 img {
-          width: 30px;
-          margin-left: 10px;
-          margin-right: 10px
-        }
-        #row2 img:hover {
-          transform: scale(1.1);
-          transition-duration: 0.2s;
-        }
-
-      /* Projects */
-      .projects {
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: auto;
-      }
-        .projects .project-row {
-          display:flex;
-          flex-direction: row;
-        }
-        .projects .proj-image {
-
-        }
-        .projects .proj-text {
-          display: block;
-          align-items: center;
-          margin: auto;
-
-        }
-        .projects img {
-          margin:50px;
-        }
-        .projects #mint {
-          max-width: 450px;
-        }
-        .projects #calculator {
-          max-width: 300px;
-        }
-      /* Contact */
-      .contact {
-        align-items: center;
-        justify-content: center;
-        margin:auto;
-      }
-
-      /* MOBILE SETTINGS */
-      @media screen and (max-width: 450px) {
-        .tab button {
-          margin:auto;
-        }
-        .home #row1 {
-          display: flex;
-          flex-direction: column;
-        }
-        .home #right1 {
-          margin: auto;
-        }
-        .projects .project-row {
-          display:flex;
-          flex-wrap: wrap;
-        }
-        .projects .proj-text {
-          margin-top: -30px;
-        }
-
-      }
-      /* END OF MOBILE SETTINGS */
-
-    </style>
+    <link href="styles.css" type="text/css" rel="stylesheet" />
   </head>
 
   <body>
@@ -241,11 +41,21 @@
     <!-- PROJECTS -->
     <div id="projects" class="tabcontent projects">
       <div class="project-row">
+          <img id="typetest" class="proj-image" src="images\typetest.JPG">
+          <p class="proj-text">
+            <span style="font-size: 20px">Type Test [WIP]</span>
+            <br>
+
+          </p>
+      </div>
+      <div class="project-row">
           <img id="mint" class="proj-image" src="images\mint-project.png">
           <p class="proj-text">
             <span style="font-size: 20px">Mint-Login Page</span>
             <br>
-            Bla Bla bla bla bla blalbalblala
+            Replica of the mint.com sign up page.
+            <br><br>
+            <a href="https://kiwoong1128.github.io/mint-login/">link</a>
           </p>
       </div>
       <div class="project-row">
@@ -272,7 +82,6 @@
       <a href="https://twitter.com/kiwoong1128"><img src="images\twitter.svg"></a>&emsp;
       <a href="https://www.instagram.com/kiwoong_k1m/?hl=en"><img src="images\instagram.svg"></a>
     </div>
-
     <script>
       function openTab(evt, tabName) {
         var i, tabcontent, tablinks;
