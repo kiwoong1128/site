@@ -161,6 +161,9 @@ body {
   .projects img {
     margin:50px;
   }
+  .projects a {
+    
+  }
   .projects #typetest {
     max-width: 450px;
   }
